@@ -1,14 +1,14 @@
 # Project Description
 
 This demo uses the MVVM architecture:
-*   UI layer
-  * WelcomeFragment
+* UI layer
   * HomeFragment
+  * HomeViewModel 
   * JobListFragment
   * JobDetailFragment
   * MainActivity
-  * HomeViewModel
-*   Data layer
+  * WelcomeFragment
+* Data layer
   * JobSearchRepository
 
 and uses Hilt for dependency injection for easy scale up and testing,
