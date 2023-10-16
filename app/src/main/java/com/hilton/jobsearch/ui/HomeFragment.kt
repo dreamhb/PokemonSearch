@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.hilton.jobsearch.R
 import com.hilton.jobsearch.databinding.FragmentHomeBinding
-import com.hilton.jobsearch.databinding.PreviousSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,9 +42,8 @@ class HomeFragment : Fragment() {
                     is UiState.Success -> {
                         findNavController().apply {
                             if (currentDestination?.id != R.id.jobListFragment) {
-                                navigate(HomeFragmentDirections.actionHomeFragmentToJobListFragment(
-                                    it.result.toTypedArray()
-                                ))
+//                                navigate(HomeFragmentDirections.actionHomeFragmentToJobListFragment(
+//                                ))
                             }
                         }
 
@@ -56,19 +54,10 @@ class HomeFragment : Fragment() {
             }
         }
 
-        lifecycleScope.launch {
-            viewModel.last5SearchState.collect {
-                it.forEach { s ->
-                    val search = PreviousSearchBinding.inflate(layoutInflater)
-                    search.root.text = s
-                    binding.last5search.addView(search.root)
-                }
-            }
-        }
 
         binding.search.setOnClickListener {
             lifecycleScope.launch {
-                viewModel.searchJob(binding.searchBox.text.toString().trim())
+                viewModel.searchPokemon(binding.searchBox.text.toString().trim())
             }
         }
 

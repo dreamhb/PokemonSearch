@@ -1,0 +1,22 @@
+query PokemonListByName($search: String!, $limit: Int!, $offset: Int!) {
+  pokemon_v2_pokemonspecies(limit: $limit, offset: $offset,where: {name: {_ilike: $search} }) {
+    capture_rate
+    name
+
+    pokemon_v2_pokemoncolor {
+      id
+      name
+    }
+
+    pokemon_v2_pokemons {
+      id
+      name
+      pokemon_v2_pokemonabilities {
+        id
+        pokemon_v2_ability {
+          name
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ plugins {
     id ("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
     id ("androidx.navigation.safeargs.kotlin")
+    id("com.apollographql.apollo3")
 }
 
 android {
@@ -50,6 +51,12 @@ kapt {
     correctErrorTypes = true
 }
 
+apollo {
+    service("graphql") {
+        packageName.set("com.hilton.jobsearch")
+    }
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -81,6 +88,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
