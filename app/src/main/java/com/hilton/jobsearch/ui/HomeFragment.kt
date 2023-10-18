@@ -1,16 +1,24 @@
 package com.hilton.jobsearch.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.hilton.jobsearch.R
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hilton.jobsearch.data.Pokemon
+import com.hilton.jobsearch.data.PokemonSpecies
 import com.hilton.jobsearch.databinding.FragmentHomeBinding
+import com.hilton.jobsearch.extensions.toPokemonData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -36,31 +44,49 @@ class HomeFragment : Fragment() {
         binding.vm = viewModel
         binding.lifecycleOwner = this
 
+        val adapter = PokemonSpeciesAdapter(object: PokemonAdapter.PokemonClickListener {
+            override fun onPokemonClick(pokemon: Pokemon) {
+                Log.e("HomeFragment", "${pokemon.name} clicked")
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPokemonDetailFragment(
+                    pokemon.toPokemonData()
+                ))
+            }
+        })
+
+        binding.list.adapter = adapter
+
+        val layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        binding.list.layoutManager = layoutManager
+
+        val divider = DividerItemDecoration(context, layoutManager.orientation)
+        divider.setDrawable(ColorDrawable(Color.parseColor("#ffcccccc")))
+        binding.list.addItemDecoration(divider)
+
         lifecycleScope.launch {
             viewModel.uiState.collect {
                 when(it) {
                     is UiState.Success -> {
-                        findNavController().apply {
-                            if (currentDestination?.id != R.id.jobListFragment) {
-//                                navigate(HomeFragmentDirections.actionHomeFragmentToJobListFragment(
-//                                ))
-                            }
-                        }
-
+                        adapter.submitData(it.result)
                     }
-                    else -> {}
-                }
 
+                    UiState.Default -> {
+                        //nothing to do
+                    }
+                    is UiState.Error -> {
+                        //show retry and error message
+                    }
+                    UiState.Loading -> {
+                        //show loading
+                    }
+                }
             }
         }
-
 
         binding.search.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.searchPokemon(binding.searchBox.text.toString().trim())
             }
         }
-
 
         binding.searchBox.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

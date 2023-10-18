@@ -6,30 +6,13 @@
     app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/jobDetailFragment"
-        android:name="com.hilton.jobsearch.ui.detail.JobDetailFragment"
-        android:label="fragment_job_detail"
-        tools:layout="@layout/fragment_job_detail" >
+        android:id="@+id/pokemonDetailFragment"
+        android:name="com.hilton.jobsearch.ui.detail.PokemonDetailFragment"
+        android:label="fragment_pokemon_detail"
+        tools:layout="@layout/fragment_pokemon_detail" >
         <argument
-            android:name="job"
-            app:argType="com.hilton.jobsearch.data.Job"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/jobListFragment"
-        android:name="com.hilton.jobsearch.ui.list.JobListFragment"
-        android:label="fragment_job_list"
-        tools:layout="@layout/fragment_job_list" >
-        <argument
-            android:name="jobs"
-            app:argType="com.hilton.jobsearch.data.Job[]" />
-        <action
-            android:id="@+id/action_jobListFragment_to_jobDetailFragment"
-            app:destination="@id/jobDetailFragment" >
-            <argument
-                android:name="job"
-                app:argType="com.hilton.jobsearch.data.Job"/>
-        </action>
+            android:name="pokemon"
+            app:argType="com.hilton.jobsearch.data.PokemonData" />
     </fragment>
 
     <fragment
@@ -38,11 +21,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_jobListFragment"
-            app:destination="@id/jobListFragment" >
+            android:id="@+id/action_homeFragment_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" >
             <argument
-                android:name="jobs"
-                app:argType="com.hilton.jobsearch.data.Job[]" />
+                android:name="pokemon"
+                app:argType="com.hilton.jobsearch.data.PokemonData" />
         </action>
     </fragment>
 

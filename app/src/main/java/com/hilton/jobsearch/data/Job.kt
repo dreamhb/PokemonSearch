@@ -4,18 +4,24 @@ import android.os.Parcelable
 import com.hilton.jobsearch.PokemonListByNameQuery
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
-data class Job(
-    val title: String,
-    val company: Company,
-    val description: String
-): Parcelable
 
+typealias PokemonSpecies = PokemonListByNameQuery.Pokemon_v2_pokemonspecy
+typealias Pokemon = PokemonListByNameQuery.Pokemon_v2_pokemon
 
 @Parcelize
-data class Company(
+data class PokemonData(
+    val id: Int,
     val name: String,
-    val logoUrl: String
+    val pokemonAbilities: List<PokemonAbility>,
 ): Parcelable
 
-typealias PokemonSpec = PokemonListByNameQuery.Pokemon_v2_pokemonspecy
+@Parcelize
+data class PokemonAbility(
+    val id: Int,
+    val ability: Ability?
+): Parcelable
+
+@Parcelize
+data class Ability(
+    val name: String
+): Parcelable

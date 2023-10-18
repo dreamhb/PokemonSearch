@@ -10,17 +10,35 @@ import androidx.databinding.BindingAdapter
  */
 object BindingAdapter {
 
-    @BindingAdapter("app:hideOnLoading")
-    @JvmStatic fun hideOnLoading(view: View, uiState: UiState?) {
-        if (uiState is UiState.Loading) {
-            view.visibility = View.GONE
-        } else {
+    @BindingAdapter("showOnSuccess")
+    @JvmStatic fun showOnSuccess(view: View, uiState: UiState?) {
+        if (uiState is UiState.Success) {
             view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.GONE
         }
     }
 
+    @BindingAdapter("showOnDefault")
+    @JvmStatic fun showOnDefault(view: View, uiState: UiState?) {
+        if (uiState is UiState.Default) {
+            view.visibility = View.VISIBLE
+        } else {
+            view.visibility = View.GONE
+        }
+    }
+
+//    @BindingAdapter("hideOnLoading")
+//    @JvmStatic fun hideOnLoading(view: View, uiState: UiState?) {
+//        if (uiState is UiState.Loading) {
+//            view.visibility = View.GONE
+//        } else {
+//            view.visibility = View.VISIBLE
+//        }
+//    }
+
     @JvmStatic
-    @BindingAdapter("app:showOnLoading")
+    @BindingAdapter("showOnLoading")
     fun showOnLoading(progressBar: ProgressBar, uiState: UiState?) {
         if (uiState is UiState.Loading) {
             progressBar.visibility = View.VISIBLE
@@ -30,7 +48,7 @@ object BindingAdapter {
     }
 
 
-    @BindingAdapter("app:showOnError")
+    @BindingAdapter("showOnError")
     @JvmStatic fun showError(textView: TextView, uiState: UiState?) {
         if (uiState is UiState.Error) {
             textView.visibility = View.VISIBLE
