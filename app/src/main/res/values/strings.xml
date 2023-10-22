@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">JobSearch</string>
-    <string name="welcome">Welcome to GraphQL Job Search</string>
-    <string name="search_box_hint">Please input job title</string>
+    <string name="app_name">Pokemon Search</string>
+    <string name="welcome">Welcome to GraphQL Pokemon Search</string>
+    <string name="search_box_hint">Please type to search pokemon</string>
     <string name="search">Search</string>
+    <string name="retry">Retry</string>
+    <string name="no_results">No hits, please try other query!</string>
 </resources>

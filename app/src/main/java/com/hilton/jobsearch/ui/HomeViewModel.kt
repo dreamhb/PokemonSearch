@@ -6,10 +6,11 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.hilton.jobsearch.data.PokemonRepository
 import com.hilton.jobsearch.data.PokemonSpecies
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,18 +29,21 @@ class HomeViewModel @Inject constructor(
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
     suspend fun searchPokemon(query: String) {
-        _uiState.update {
-            UiState.Loading
-        }
+
         viewModelScope.launch {
-            repo.getSearchResultStream(query).cachedIn(viewModelScope).catch { e ->
-                _uiState.update {
-                    UiState.Error(e.message)
+            try {
+                //we show loading first
+                _uiState.emit(UiState.Loading)
+                delay(2000)
+
+                repo.getSearchResultStream(query).cachedIn(viewModelScope).collectLatest { pagingData ->
+                    _uiState.update {
+                        //show results when succeed
+                        UiState.Success(pagingData)
+                    }
                 }
-            }.collect { pagingData ->
-                _uiState.update {
-                    UiState.Success(pagingData)
-                }
+            } catch (e: Exception) {
+                _uiState.emit(UiState.Error(e.message))
             }
         }
     }

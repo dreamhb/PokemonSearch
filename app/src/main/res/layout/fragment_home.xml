@@ -32,8 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/search_box_hint"
-            android:imeOptions="actionDone"
-            app:showOnDefault="@{vm.uiState}"
+            android:imeOptions="actionSearch"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +44,6 @@
             android:enabled="false"
             android:text="@string/search"
             app:layout_constraintTop_toBottomOf="@id/guideline"
-            app:showOnDefault="@{vm.uiState}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +58,12 @@
             android:id="@+id/error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="4dp"
             android:gravity="center"
+            android:textColor="@color/white"
+            tools:text="Error"
+            android:maxLines="2"
+            android:background="@android:color/holo_red_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:showOnError="@{vm.uiState}" />
 

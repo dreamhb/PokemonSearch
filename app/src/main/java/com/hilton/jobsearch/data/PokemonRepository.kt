@@ -22,7 +22,7 @@ class PokemonRepository @Inject constructor(
 ) {
     fun getSearchResultStream(query: String): Flow<PagingData<PokemonSpecies>> {
         return Pager(
-            PagingConfig(pageSize = 6)
+            PagingConfig(pageSize = 6, initialLoadSize = 6)
         ) {
             PokemonPagingSource(api, query)
         }.flow

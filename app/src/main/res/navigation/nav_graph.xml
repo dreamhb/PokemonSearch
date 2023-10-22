@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/pokemonDetailFragment"
@@ -19,23 +19,32 @@
         android:id="@+id/homeFragment"
         android:name="com.hilton.jobsearch.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.hilton.jobsearch.ui.list.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <argument app:argType="string"
+            android:name="query"/>
         <action
-            android:id="@+id/action_homeFragment_to_pokemonDetailFragment"
+            android:id="@+id/action_listFragment_to_pokemonDetailFragment"
             app:destination="@id/pokemonDetailFragment" >
             <argument
                 android:name="pokemon"
                 app:argType="com.hilton.jobsearch.data.PokemonData" />
         </action>
     </fragment>
-
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.hilton.jobsearch.ui.WelcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        android:id="@+id/mainFragment"
+        android:name="com.hilton.jobsearch.ui.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_welcomeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_mainFragment_to_listFragment"
+            app:destination="@id/listFragment" >
+            <argument android:name="query" app:argType="string"/>
+        </action>
     </fragment>
+
 </navigation>

@@ -1,30 +1,32 @@
 package com.hilton.jobsearch.ui
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.hilton.jobsearch.R
 import com.hilton.jobsearch.data.Pokemon
-import com.hilton.jobsearch.data.PokemonSpecies
 import com.hilton.jobsearch.databinding.FragmentHomeBinding
-import com.hilton.jobsearch.extensions.toPokemonData
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    companion object {
+        const val TAG = "HomeFragment"
+    }
 
     @Inject
     lateinit var viewModel: HomeViewModel
@@ -46,10 +48,9 @@ class HomeFragment : Fragment() {
 
         val adapter = PokemonSpeciesAdapter(object: PokemonAdapter.PokemonClickListener {
             override fun onPokemonClick(pokemon: Pokemon) {
-                Log.e("HomeFragment", "${pokemon.name} clicked")
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPokemonDetailFragment(
-                    pokemon.toPokemonData()
-                ))
+//                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPokemonDetailFragment(
+//                    pokemon.toPokemonData()
+//                ))
             }
         })
 
@@ -59,11 +60,28 @@ class HomeFragment : Fragment() {
         binding.list.layoutManager = layoutManager
 
         val divider = DividerItemDecoration(context, layoutManager.orientation)
-        divider.setDrawable(ColorDrawable(Color.parseColor("#ffcccccc")))
+        divider.setDrawable(ColorDrawable(resources.getColor(R.color.divider)))
         binding.list.addItemDecoration(divider)
 
+
         lifecycleScope.launch {
-            viewModel.uiState.collect {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                when(val state = loadStates.source.refresh) {
+                    is LoadState.Error -> {
+                    }
+
+                    LoadState.Loading -> {
+
+                    }
+                    is LoadState.NotLoading -> {
+
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.uiState.collectLatest {
                 when(it) {
                     is UiState.Success -> {
                         adapter.submitData(it.result)

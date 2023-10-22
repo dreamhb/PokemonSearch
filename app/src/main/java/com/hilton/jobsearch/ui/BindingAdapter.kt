@@ -1,9 +1,11 @@
 package com.hilton.jobsearch.ui
 
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.hilton.jobsearch.R
 
 /**
  * for data binding properties update
@@ -19,23 +21,17 @@ object BindingAdapter {
         }
     }
 
-    @BindingAdapter("showOnDefault")
-    @JvmStatic fun showOnDefault(view: View, uiState: UiState?) {
-        if (uiState is UiState.Default) {
+    @BindingAdapter("showOnDefaultAndError")
+    @JvmStatic fun showOnDefaultAndError(view: View, uiState: UiState?) {
+        if (uiState is UiState.Default || uiState is UiState.Error) {
             view.visibility = View.VISIBLE
+            if (uiState is UiState.Error && view is Button) {
+                view.text = view.resources.getText(R.string.retry)
+            }
         } else {
             view.visibility = View.GONE
         }
     }
-
-//    @BindingAdapter("hideOnLoading")
-//    @JvmStatic fun hideOnLoading(view: View, uiState: UiState?) {
-//        if (uiState is UiState.Loading) {
-//            view.visibility = View.GONE
-//        } else {
-//            view.visibility = View.VISIBLE
-//        }
-//    }
 
     @JvmStatic
     @BindingAdapter("showOnLoading")

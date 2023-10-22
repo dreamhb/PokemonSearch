@@ -5,6 +5,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.apollographql.apollo3.ApolloClient
 import com.hilton.jobsearch.PokemonListByNameQuery
+import kotlinx.coroutines.delay
 
 
 class PokemonPagingSource (
@@ -17,7 +18,6 @@ class PokemonPagingSource (
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
 
-        Log.d("pokemon", " get refresh key $pos")
         return pos
     }
 
@@ -38,7 +38,6 @@ class PokemonPagingSource (
                 val old = params.key ?: 0
                 old + params.loadSize
             }
-            Log.d("PokemonPagingSource", " offset = $offset, limit = ${params.loadSize}, nextKey = $nextKey")
 
             return LoadResult.Page(
                 data = response.data?.pokemon_v2_pokemonspecies ?: emptyList(),
