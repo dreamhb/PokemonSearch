@@ -1,25 +1,18 @@
 # Project Description
 
-This demo uses the MVVM architecture:
-* UI layer
-  * HomeFragment
-  * HomeViewModel 
-  * JobListFragment
-  * JobDetailFragment
+This quiz uses the MVVM architecture and has 3 pages, the core fragment is **ListFragment**.
+*   UI layer
+  * SplashActivity
   * MainActivity
-  * WelcomeFragment
-* Data layer
-  * JobSearchRepository
+    * MainFragment(Input and Search)
+    * ListFragment
+    * PokemonDetailFragment
+*   Data layer
+  * PokemonRepository
 
-## Used Libraries
-### Hilt
-uses Hilt for dependency injection for easy scale up and testing
-### Jetpack Navigation
-uses Jetpack Navigation for single Activity navigation
-### Retrofit
-Because https://api.graphql.jobs is down, so use **Retrofit** to mock the api instead. We adopt the MVVM architecture,
-so we can easily replace **Retrofit** in the Data layer with other tools when the api is online.
+And uses **Hilt** for dependency injection for easy scale up and testing,
+uses **Jetpack Navigation** for single Activity navigation,
+uses **Apollo** for GraphQL networking,
+uses **Jetpack Paging** for paginating results.
 
-### View binding & Data binding
-
-
+also uses data binding and view binding to speed up the development.

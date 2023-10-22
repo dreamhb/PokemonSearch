@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.hilton.jobsearch.databinding.FragmentMainBinding
 
+/**
+ * The entry fragment for searching
+ */
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding

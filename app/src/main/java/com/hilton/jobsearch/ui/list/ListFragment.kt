@@ -24,6 +24,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * List Fragment to show pokemon search results
+ */
 @AndroidEntryPoint
 class ListFragment : Fragment() {
 

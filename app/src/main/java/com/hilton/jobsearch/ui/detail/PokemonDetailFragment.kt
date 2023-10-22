@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hilton.jobsearch.databinding.FragmentPokemonDetailBinding
 
 /**
- * Fragment for job detail page
+ * Fragment for pokemon detail
  */
 class PokemonDetailFragment : Fragment() {
 
