@@ -1,6 +1,5 @@
-# Project Description
-
-This quiz uses the MVVM architecture and has 3 pages, the core fragment is **ListFragment**.
+# Pokemon Search Project Description
+It uses the MVVM architecture and has 3 pages, the core fragment is **ListFragment**.
 *   UI layer
   * SplashActivity
   * MainActivity
@@ -21,6 +20,6 @@ easy navigation in a single activity with multiple fragments
 ### Apollo
 GraphQl networking
 ### Jetpack Paging
-paginate the result
-
-also uses data binding and view binding to speed up the development.
+Paginate the result
+### DataBinding & ViewBinding
+They are used to speed up the development.
