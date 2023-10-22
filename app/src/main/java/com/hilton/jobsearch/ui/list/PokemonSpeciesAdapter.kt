@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui
+package com.hilton.jobsearch.ui.list
 
 import android.graphics.Color
 import android.view.LayoutInflater

@@ -12,10 +12,6 @@ object NetworkModule {
 
     private const val SERVER_URL = "https://beta.pokeapi.co/graphql/v1beta"
 
-    /**
-     * network module
-     * use Retrofit since GraphQL is down, otherwise will use Apollo for graphql networking
-     */
     @Provides
     fun provideApolloClient(): ApolloClient {
         return ApolloClient.Builder()

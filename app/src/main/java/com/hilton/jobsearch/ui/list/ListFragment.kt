@@ -19,8 +19,6 @@ import com.hilton.jobsearch.R
 import com.hilton.jobsearch.data.Pokemon
 import com.hilton.jobsearch.databinding.FragmentListBinding
 import com.hilton.jobsearch.extensions.toPokemonData
-import com.hilton.jobsearch.ui.PokemonAdapter
-import com.hilton.jobsearch.ui.PokemonSpeciesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
