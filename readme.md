@@ -1,12 +1,12 @@
 # Pokemon Search Project Description
 It uses the MVVM architecture and has 3 pages, the core fragment is **ListFragment**.
-*   UI layer
+* UI layer
   * SplashActivity
   * MainActivity
     * MainFragment(Input and Search)
     * ListFragment
     * PokemonDetailFragment
-*   Data layer
+* Data layer
   * PokemonRepository
 
 ## Libraries Used
