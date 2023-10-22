@@ -1,11 +1,9 @@
 package com.hilton.jobsearch.data
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.apollographql.apollo3.ApolloClient
 import com.hilton.jobsearch.PokemonListByNameQuery
-import kotlinx.coroutines.delay
 
 
 class PokemonPagingSource (
