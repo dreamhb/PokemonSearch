@@ -1,9 +1,9 @@
-package com.hilton.jobsearch.data
+package com.hilton.pokemonsearch.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.apollographql.apollo3.ApolloClient
-import com.hilton.jobsearch.PokemonListByNameQuery
+import com.hilton.pokemonsearch.PokemonListByNameQuery
 
 
 class PokemonPagingSource (

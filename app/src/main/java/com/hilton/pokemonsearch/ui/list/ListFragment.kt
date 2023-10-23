@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui.list
+package com.hilton.pokemonsearch.ui.list
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -15,10 +15,10 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hilton.jobsearch.R
-import com.hilton.jobsearch.data.Pokemon
-import com.hilton.jobsearch.databinding.FragmentListBinding
-import com.hilton.jobsearch.extensions.toPokemonData
+import com.hilton.pokemonsearch.R
+import com.hilton.pokemonsearch.data.Pokemon
+import com.hilton.pokemonsearch.databinding.FragmentListBinding
+import com.hilton.pokemonsearch.extensions.toPokemonData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

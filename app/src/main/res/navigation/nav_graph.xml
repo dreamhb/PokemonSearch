@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/pokemonDetailFragment"
-        android:name="com.hilton.jobsearch.ui.detail.PokemonDetailFragment"
+        android:name="com.hilton.pokemonsearch.ui.detail.PokemonDetailFragment"
         android:label="fragment_pokemon_detail"
         tools:layout="@layout/fragment_pokemon_detail" >
         <argument
             android:name="pokemon"
-            app:argType="com.hilton.jobsearch.data.PokemonData" />
+            app:argType="com.hilton.pokemonsearch.data.PokemonData" />
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.hilton.jobsearch.ui.HomeFragment"
+        android:name="com.hilton.pokemonsearch.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.hilton.jobsearch.ui.list.ListFragment"
+        android:name="com.hilton.pokemonsearch.ui.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <argument app:argType="string"
@@ -32,12 +32,12 @@
             app:destination="@id/pokemonDetailFragment" >
             <argument
                 android:name="pokemon"
-                app:argType="com.hilton.jobsearch.data.PokemonData" />
+                app:argType="com.hilton.pokemonsearch.data.PokemonData" />
         </action>
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hilton.jobsearch.ui.MainFragment"
+        android:name="com.hilton.pokemonsearch.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action

@@ -1,11 +1,11 @@
-package com.hilton.jobsearch.ui.detail
+package com.hilton.pokemonsearch.ui.detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.hilton.jobsearch.data.Ability
-import com.hilton.jobsearch.data.PokemonAbility
-import com.hilton.jobsearch.databinding.PokemonAbilityItemBinding
+import com.hilton.pokemonsearch.data.Ability
+import com.hilton.pokemonsearch.data.PokemonAbility
+import com.hilton.pokemonsearch.databinding.PokemonAbilityItemBinding
 
 class PokemonAbilitiesAdapter(private val pokemonAbilities: List<PokemonAbility>):
     RecyclerView.Adapter<PokemonAbilitiesViewHolder>() {

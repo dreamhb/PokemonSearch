@@ -1,4 +1,4 @@
-package com.hilton.jobsearch
+package com.hilton.pokemonsearch
 
 import org.junit.Test
 

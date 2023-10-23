@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui.list
+package com.hilton.pokemonsearch.ui.list
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hilton.jobsearch.data.Pokemon
-import com.hilton.jobsearch.data.PokemonSpecies
-import com.hilton.jobsearch.databinding.PokemonItemBinding
-import com.hilton.jobsearch.databinding.PokemonSpeciesItemBinding
-import com.hilton.jobsearch.extensions.asColor
+import com.hilton.pokemonsearch.data.Pokemon
+import com.hilton.pokemonsearch.data.PokemonSpecies
+import com.hilton.pokemonsearch.databinding.PokemonItemBinding
+import com.hilton.pokemonsearch.databinding.PokemonSpeciesItemBinding
+import com.hilton.pokemonsearch.extensions.asColor
 
 class PokemonSpeciesAdapter(private val listener: PokemonAdapter.PokemonClickListener): PagingDataAdapter<PokemonSpecies,
         PokemonSpeciesViewHolder>(diffCallback = diffCallback) {

@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui.detail
+package com.hilton.pokemonsearch.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hilton.jobsearch.databinding.FragmentPokemonDetailBinding
+import com.hilton.pokemonsearch.databinding.FragmentPokemonDetailBinding
 
 /**
  * Fragment for pokemon detail

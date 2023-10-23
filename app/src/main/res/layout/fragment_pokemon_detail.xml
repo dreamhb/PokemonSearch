@@ -6,7 +6,7 @@
     <data>
         <variable
             name="pokemon"
-            type="com.hilton.jobsearch.data.PokemonData" />
+            type="com.hilton.pokemonsearch.data.PokemonData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

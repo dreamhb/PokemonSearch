@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hilton.jobsearch"
+    namespace = "com.hilton.pokemonsearch"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hilton.jobsearch"
+        applicationId = "com.hilton.pokemonsearch"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -53,7 +53,7 @@ kapt {
 
 apollo {
     service("graphql") {
-        packageName.set("com.hilton.jobsearch")
+        packageName.set("com.hilton.pokemonsearch")
     }
 }
 

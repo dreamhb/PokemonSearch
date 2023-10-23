@@ -1,7 +1,7 @@
-package com.hilton.jobsearch.data
+package com.hilton.pokemonsearch.data
 
 import android.os.Parcelable
-import com.hilton.jobsearch.PokemonListByNameQuery
+import com.hilton.pokemonsearch.PokemonListByNameQuery
 import kotlinx.parcelize.Parcelize
 
 

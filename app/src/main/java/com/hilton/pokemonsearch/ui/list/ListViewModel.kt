@@ -1,11 +1,11 @@
-package com.hilton.jobsearch.ui.list
+package com.hilton.pokemonsearch.ui.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.hilton.jobsearch.data.PokemonRepository
-import com.hilton.jobsearch.data.PokemonSpecies
+import com.hilton.pokemonsearch.data.PokemonRepository
+import com.hilton.pokemonsearch.data.PokemonSpecies
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext

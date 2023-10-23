@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.data
+package com.hilton.pokemonsearch.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

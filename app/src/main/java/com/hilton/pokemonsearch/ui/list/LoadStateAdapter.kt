@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui.list
+package com.hilton.pokemonsearch.ui.list
 
 import android.view.ViewGroup
 import androidx.paging.LoadState

@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.di
+package com.hilton.pokemonsearch.di
 
 import com.apollographql.apollo3.ApolloClient
 import dagger.Module

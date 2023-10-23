@@ -1,10 +1,10 @@
-package com.hilton.jobsearch.extensions
+package com.hilton.pokemonsearch.extensions
 
 import android.graphics.Color
-import com.hilton.jobsearch.PokemonListByNameQuery
-import com.hilton.jobsearch.data.Ability
-import com.hilton.jobsearch.data.PokemonAbility
-import com.hilton.jobsearch.data.PokemonData
+import com.hilton.pokemonsearch.PokemonListByNameQuery
+import com.hilton.pokemonsearch.data.Ability
+import com.hilton.pokemonsearch.data.PokemonAbility
+import com.hilton.pokemonsearch.data.PokemonData
 
 fun String.asColor(): Int {
     return when(this) {

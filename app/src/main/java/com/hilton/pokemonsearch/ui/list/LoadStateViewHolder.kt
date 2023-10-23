@@ -1,11 +1,11 @@
-package com.hilton.jobsearch.ui.list
+package com.hilton.pokemonsearch.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
-import com.hilton.jobsearch.databinding.LoadStateFooterViewItemBinding
+import com.hilton.pokemonsearch.databinding.LoadStateFooterViewItemBinding
 
 class LoadStateViewHolder(
     private val binding: LoadStateFooterViewItemBinding,

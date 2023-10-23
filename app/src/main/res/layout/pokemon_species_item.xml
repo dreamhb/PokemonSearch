@@ -8,7 +8,7 @@
         <import type="android.graphics.Color"/>
         <variable
             name="pokemon"
-            type="com.hilton.jobsearch.PokemonListByNameQuery.Pokemon_v2_pokemonspecy" />
+            type="com.hilton.pokemonsearch.PokemonListByNameQuery.Pokemon_v2_pokemonspecy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

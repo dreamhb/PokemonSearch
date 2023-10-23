@@ -1,4 +1,4 @@
-package com.hilton.jobsearch.ui
+package com.hilton.pokemonsearch.ui
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.hilton.jobsearch.databinding.FragmentMainBinding
+import com.hilton.pokemonsearch.databinding.FragmentMainBinding
 
 /**
  * The entry fragment for searching
